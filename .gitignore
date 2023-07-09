@@ -1,2 +1,3 @@
 citrouille/__pycache__
 .venv
+db.sqlite3
