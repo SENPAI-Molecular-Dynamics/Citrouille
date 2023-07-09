@@ -1,0 +1,83 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Citrouille</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'citrouille/css/style.css' %}">
+</head>
+
+<body>
+
+    <div class="logo-container">
+        <img src="{% static 'citrouille/images/logo.png' %}" alt="Software Logo">
+    </div>
+
+    <div class="left-panel">
+        <h2>Compute Nodes</h2>
+        <div class="compute-node-list">
+            <form class="add-node-form">
+                <h3>Add Compute Node</h3>
+                <div class="form-row">
+                    <input type="text" id="node-hostname" placeholder="hostname" required>
+                    <span>:</span>
+                    <input type="text" id="node-port" placeholder="port" maxlength="5" required>
+                </div>
+                <div class="form-row">
+                    <input type="text" id="node-name" placeholder="name" required>
+                    <button type="submit">Add</button>
+                </div>
+            </form>
+
+            <ul class="compute-nodes">
+                <!-- Existing compute nodes will be dynamically added here -->
+            </ul>
+        </div>
+    </div>
+
+    <div class="right-panel">
+        <h3>Simulation Information</h3>
+        <div class="simulation-info">
+            <div class="info-pair">
+                <span class="info-label">Current Frame:</span>
+                <span id="current-frame">0/0</span>
+            </div>
+            <div class="info-pair">
+                <span class="info-label">Atom Count:</span>
+                <span id="atom-count">0</span>
+            </div>
+            <div class="info-pair">
+                <span class="info-label">Initial Potential Energy:</span>
+                <span id="initial-potential-energy">0 J</span>
+            </div>
+            <div class="info-pair">
+                <span class="info-label">Initial Kinetic Energy:</span>
+                <span id="initial-kinetic-energy">0 J</span>
+            </div>
+            <div class="info-pair">
+                <span class="info-label">Current Potential Energy:</span>
+                <span id="current-potential-energy">0 J</span>
+            </div>
+            <div class="info-pair">
+                <span class="info-label">Current Kinetic Energy:</span>
+                <span id="current-kinetic-energy">0 J</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="main-content">
+        <!-- Add your main content here -->
+    </div>
+
+    <div class="log-panel">
+        <h2>Logs</h2>
+        <div class="log-container">
+            <!-- Log container for real-time updates -->
+        </div>
+    </div>
+
+    <script src="{% static 'citrouille/js/script.js' %}"></script>
+</body>
+
+</html>
