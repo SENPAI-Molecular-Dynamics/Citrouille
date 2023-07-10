@@ -25,20 +25,21 @@ document.addEventListener('DOMContentLoaded', () => {
     newNode.textContent = `${hostname}:${port} (${name})`;
     newNode.classList.add('compute-node');
 
-    // Add click event listener to compute node
+    // Add a click event listener to the new node
     newNode.addEventListener('click', () => {
-      const nodeText = newNode.textContent.trim();
-      const logMessage = `Clicked compute node: ${nodeText}\n`;
-      logContainer.textContent += logMessage;
-      logContainer.scrollTop = logContainer.scrollHeight;
+      updateLogs(`Clicked on compute node: ${name}`);
     });
 
     // Append the new compute node to the list
     computeNodesList.appendChild(newNode);
-
-    // Log the addition of the compute node
-    const logMessage = `Added compute node: ${hostname}:${port} (${name})\n`;
-    logContainer.textContent += logMessage;
-    logContainer.scrollTop = logContainer.scrollHeight;
+    updateLogs(`Added compute node: ${name}`);
   });
+
+  function updateLogs(log) {
+    const logItem = document.createElement('div');
+    logItem.textContent = log;
+    logContainer.appendChild(logItem);
+    // Scroll to the bottom of the log container
+    logContainer.scrollTop = logContainer.scrollHeight;
+  }
 });
