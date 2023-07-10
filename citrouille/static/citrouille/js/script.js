@@ -2,10 +2,11 @@ document.addEventListener('DOMContentLoaded', () => {
   // Handles logging
   function updateLogs(log) {
     const logItem = document.createElement('div');
-    logItem.textContent = log;
+    const timestamp = new Date().toLocaleTimeString(); // Get current timestamp
+    logItem.textContent = `[${timestamp}] ${log}`; // Prepend log message with timestamp
     logContainer.appendChild(logItem);
     logContainer.scrollTop = logContainer.scrollHeight;
-  }
+  }  
 
   // Check if a compute node with the same address and port exists
   function isDuplicateNode(hostname, port) {
